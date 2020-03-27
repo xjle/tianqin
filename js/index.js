@@ -1,4 +1,9 @@
 $(function () {
+    // 滑块
+    let $hua = $('.box1-right>p')
+    console.log($hua)
+
+    // 轮播图
     let $lunbo = $('.lunbo')
     let $list = $('.list')
     let $points = $('.pointsDiv>span')
@@ -20,7 +25,7 @@ $(function () {
     })
 
     // 3. 每隔3s自动滑动到下一页
-    var intervalId = setInterval(function () {
+    let intervalId = setInterval(function () {
         nextPage(true)
     }, 1000)
 
@@ -35,7 +40,7 @@ $(function () {
 
     // 6. 点击圆点图标切换到对应的页
     $points.click(function () {
-        var targetIndex = $(this).index()
+        let targetIndex = $(this).index()
         if(targetIndex!=index) {
             nextPage(targetIndex)
         }
@@ -54,7 +59,7 @@ $(function () {
         }
         moving = true // 标识正在翻页中
 
-        var offset = 0 //移动的总距离
+        let offset = 0 //移动的总距离
         // 计算offset
         if(typeof next==='boolean') {
             offset = next ? -PAGE_WIDTH : PAGE_WIDTH
@@ -63,13 +68,13 @@ $(function () {
         }
 
         // 计算单元移动的距离
-        var itemOffset = offset/(TIME/ITEM_TIME)
+        let itemOffset = offset/(TIME/ITEM_TIME)
         // 当前的left
-        var currLeft = $list.position().left
+        let currLeft = $list.position().left
         // 目标的left
-        var targetLeft = currLeft + offset
+        let targetLeft = currLeft + offset
         // 启动循环定时器不断移动, 到达目标位置时清除定时器
-        var intervalId = setInterval(function () {
+        let intervalId = setInterval(function () {
             // 计算当前要设置的left
             currLeft += itemOffset
             if(currLeft===targetLeft) {
@@ -170,7 +175,7 @@ $(function () {
                     type: 'bar',
                     showBackground: true,
                     backgroundStyle: {
-                        color: 'rgba(220, 220, 220, 0.5)'
+                        color: 'rgba(220, 220, 220, 0)'
                     },
                     itemStyle: {
                         color: '#4587ef'
