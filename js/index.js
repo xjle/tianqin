@@ -1,7 +1,9 @@
 $(function () {
     // 滑块
     let $hua = $('.box1-right>p')
-    console.log($hua)
+    $hua.click(function () {
+        $(this).addClass('wilte').siblings().removeClass('wilte')
+    })
 
     // 轮播图
     let $lunbo = $('.lunbo')
